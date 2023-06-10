@@ -174,7 +174,7 @@ public class Silly implements Comparable<Silly>{
     @Override
     public int compareTo(Silly other) {
 
-        if (this.name.length() > other.name.length) {
+        if (this.name.length() > other.name.length()) {
             return 1;
         } else if (this.name.length() < other.name.length()) {
             return -1;
