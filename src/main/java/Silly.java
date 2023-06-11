@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * This file contains a few exercises to familiarize you with specific
@@ -58,9 +59,7 @@ public class Silly implements Comparable<Silly>{
      *
      * @param name the name of this Silly instance.
      */
-    public Silly(String name) {
-        this.name = name;
-    }
+    public Silly(String name) {this.name = name;}
 
     /**
      * Creates a new Silly object.
@@ -94,17 +93,14 @@ public class Silly implements Comparable<Silly>{
         System.out.println("Silly 2: " + second_version);
         System.out.println("Silly 3: " + third_version);
 
-
-
         Silly x = new Silly("something");
         Silly y = new Silly("something else");
-
-
 
         x.countStatic();
         y.countStatic();
         x.countStatic();
         x.countStatic();
+
         int[] expected_values = {0, 1, 2, 3};
 
         System.out.println("The countStatic calls will return " + Arrays.toString(expected_values));
@@ -122,7 +118,7 @@ public class Silly implements Comparable<Silly>{
      */
     @Override
     public String toString(){
-        return String.valueOf(this.name);
+        return this.name;
 
     }
 
@@ -174,13 +170,10 @@ public class Silly implements Comparable<Silly>{
     @Override
     public int compareTo(Silly other) {
 
-        if (this.name.length() > other.name.length()) {
-            return 1;
-        } else if (this.name.length() < other.name.length()) {
-            return -1;
-        } else {
-            return 0;
-        }
+        int len1 = this.name.length();
+        int len2 = other.name.length();
+
+        return len1 - len2;
 
     }
 }
